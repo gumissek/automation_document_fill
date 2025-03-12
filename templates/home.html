@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>wypelnij dokument</title>
+    {%from 'bootstrap5/form.html' import render_form%}
+    {{bootstrap.load_css()}}
+</head>
+<body>
+<div class="container my-2">
+    {% with messages = get_flashed_messages()%}
+    {%if messages%}
+    {%for message in messages%}
+    <p style="color:red">{{message}}</p>
+    {%endfor%}
+    {% endif %}
+    {% endwith %}
+
+    <h1>Uzupelnij blankiet pocztowy <br>Autor - <a href="https://github.com/gumissek/automation_doc_fill" target="_blank">gumissek</a></h1>
+    {{render_form(form,novalidate=True)}}
+    <hr>
+    <a href="{{url_for('home')}}"class="btn btn-danger">Resetuj formularz</a>
+</div>
+
+
+{{bootstrap.load_js()}}
+</body>
+</html>
