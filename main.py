@@ -77,7 +77,7 @@ def home():
 
         odbiorca_dane_p1 = request.form['odbiorca_dane_p1'].strip().upper()
         odbiorca_dane_p2 = request.form['odbiorca_dane_p2'].strip().upper()
-        odbiorca_nr_konta = request.form['odbiorca_nr_konta'].strip()
+        odbiorca_nr_konta = request.form['odbiorca_nr_konta'].strip().replace(' ','')
         kwota_liczba = str(round(float(request.form['kwota_liczba'].strip()), 2))
         kwota_slownie = request.form['kwota_slownie'].strip().upper()
         nadawca_dane_p1 = request.form['nadawca_dane_p1'].strip().upper()
